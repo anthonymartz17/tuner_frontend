@@ -1,8 +1,8 @@
 import { Outlet } from "react-router-dom";
 
-export default function AdminLayout() {
+export default function Songs() {
 	return (
-		<div>
+    <div>
 			<Outlet />
 		</div>
 	);
