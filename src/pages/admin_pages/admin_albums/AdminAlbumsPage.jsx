@@ -1,7 +1,11 @@
-import React from 'react'
+import React from "react";
+import { Outlet } from "react-router-dom";
 
 export default function AdminAlbumsPage() {
-  return (
-    <div>AdminAlbumsPage</div>
-  )
+	return (
+		<div>
+			{" "}
+			<Outlet />
+		</div>
+	);
 }

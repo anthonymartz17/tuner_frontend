@@ -1,7 +1,9 @@
-import React from 'react'
+import { Outlet } from "react-router-dom";
 
 export default function AdminArtistsPage() {
-  return (
-    <div>AdminArtistsPage</div>
-  )
+	return (
+		<div>
+			<Outlet />
+		</div>
+	);
 }
