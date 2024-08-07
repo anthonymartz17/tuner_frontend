@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 export default function SongCardMobileAdmin({ song }) {
 	return (
-		<div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+		<div class="relative overflow-x-auto shadow-md sm:rounded-lg rounded-md ">
 			<table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
 				<tbody>
 					<tr class="border-b border-gray-200 dark:border-gray-700">
@@ -14,7 +14,7 @@ export default function SongCardMobileAdmin({ song }) {
 						</th>
 						<td class="px-6 py-4 flex items-baseline gap-1">
 							<img className="w-10" src={song.cover_img} alt="" />
-							{song.name}
+							<span className="truncate">{song.name}</span>
 						</td>
 					</tr>
 					<tr class="border-b border-gray-200 dark:border-gray-700">
