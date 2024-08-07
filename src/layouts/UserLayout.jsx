@@ -1,11 +1,11 @@
 import { Outlet } from "react-router-dom";
+import HeaderUser from "../components/user_components/layout/HeaderUser";
 
 export default function UserLayout() {
 	return (
-    <div>
-      nav
-      <Outlet />
-      footer
+		<div>
+			<HeaderUser />
+			<Outlet />
 		</div>
 	);
 }
