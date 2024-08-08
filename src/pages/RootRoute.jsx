@@ -2,7 +2,6 @@ import { Outlet, NavLink } from "react-router-dom";
 
 export default function RootRouter() {
 	function setActiveRoute({ isActive }) {
-		console.log(isActive);
 		return isActive ? "text-accent" : "text-light";
 	}
 	return (

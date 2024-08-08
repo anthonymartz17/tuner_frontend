@@ -61,7 +61,7 @@ export default function HeaderAdmin() {
 				</li>
 			</ul>
 			<div className="hidden md:block">Admin@mail.com</div>
-			<MobileMenuAdmin isOpen={isOpen} setIsOpen={setIsOpen} />
+			<MobileMenuAdmin isOpen={isOpen} onSetIsOpen={setIsOpen} />
 			<div
 				onClick={() => setIsOpen(false)}
 				className={`mobile_menu_backdrop ${isOpen ? "open" : ""}`}
