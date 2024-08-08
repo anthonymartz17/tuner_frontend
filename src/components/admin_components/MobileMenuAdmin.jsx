@@ -1,8 +1,8 @@
 import React, { useState, useRef, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 
-export default function MobileMenuUser({ isOpen, onSetIsOpen }) {
-	function setActiveRoute(isActive) {
+export default function MobileMenuAdmin({ isOpen, onSetIsOpen }) {
+	function setActiveRoute({ isActive }) {
 		return isActive ? "text-accent" : "text-light";
 	}
 
@@ -21,7 +21,11 @@ export default function MobileMenuUser({ isOpen, onSetIsOpen }) {
 					>
 						User UI
 					</NavLink>
-					<NavLink to="/admin" onClick={() => onSetIsOpen(false)}>
+					<NavLink
+						className={setActiveRoute}
+						to="/admin"
+						onClick={() => onSetIsOpen(false)}
+					>
 						Admin UI
 					</NavLink>
 				</div>

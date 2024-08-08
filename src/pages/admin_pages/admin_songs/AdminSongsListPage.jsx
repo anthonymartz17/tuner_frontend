@@ -13,16 +13,15 @@ export default function AdminSongsListPage() {
 	}, []);
 	return (
 		<div className=" flex justify-center">
-			<ul className="grid gap-3 h-full max-height-75 overflow-y-auto md:hidden">
+			<ul className="grid gap-3 h-full w-full max-height-75 overflow-y-auto md:hidden px-3">
 				{songs.length > 0 ? (
 					songs.map((song) => <SongCardMobileAdmin song={song} key={song.id} />)
 				) : (
 					<p>no songs added</p>
 				)}
 			</ul>
-			<div className="max-w-screen-md w-full">
-				<SongTableListAdmin songs={songs} />
-			</div>
+
+			<SongTableListAdmin songs={songs} />
 		</div>
 	);
 }

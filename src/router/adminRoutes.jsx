@@ -10,6 +10,7 @@ import AdminArtistEditPage from "../pages/admin_pages/admin_artists/AdminArtistE
 import AdminArtistListPage from "../pages/admin_pages/admin_artists/AdminArtistListPage";
 import AdminArtistsPage from "../pages/admin_pages/admin_artists/AdminArtistsPage";
 import AdminSingleArtistPage from "../pages/admin_pages/admin_artists/AdminSingleArtistPage";
+import AdminNewSongPage from "../pages/admin_pages/admin_songs/AdminNewSongPage";
 import AdminSingleSongPage from "../pages/admin_pages/admin_songs/AdminSingleSongPage";
 import AdminSongEditPage from "../pages/admin_pages/admin_songs/AdminSongEditPage";
 import AdminSongsListPage from "../pages/admin_pages/admin_songs/AdminSongsListPage";
@@ -31,6 +32,7 @@ export default [
 		children: [
 			{ path: "", element: <AdminSongsListPage /> },
 			{ path: ":song_id", element: <AdminSingleSongPage /> },
+			{ path: "new", element: <AdminNewSongPage /> },
 			{ path: ":song_id/edit", element: <AdminSongEditPage /> },
 		],
 	},

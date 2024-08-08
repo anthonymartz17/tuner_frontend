@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 
 export default function MobileMenuUser({ isOpen, onSetIsOpen }) {
-	function setActiveRoute(isActive) {
+	function setActiveRoute({ isActive }) {
 		return isActive ? "text-accent" : "text-light";
 	}
 
