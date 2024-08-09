@@ -20,11 +20,18 @@ import AdminUserEditPage from "../pages/admin_pages/admin_users/AdminUserEditPag
 import AdminUserListPage from "../pages/admin_pages/admin_users/AdminUserListPage";
 import AdminUsersPage from "../pages/admin_pages/admin_users/AdminUsersPage";
 import DashboardPage from "../pages/admin_pages/dashboard/DashboardPage";
+import IndexAuthAdminPage from "../pages/admin_pages/admin_auth/IndexAuthAdminPage";
+import LoginAuthAdminPage from "../pages/admin_pages/admin_auth/LoginAuthAdminPage";
 
 export default [
 	{
 		path: "",
 		element: <DashboardPage />,
+	},
+	{
+		path: "auth",
+		element: <IndexAuthAdminPage />,
+		children: [{ path: "", element: <LoginAuthAdminPage /> }],
 	},
 	{
 		path: "songs",
@@ -46,6 +53,7 @@ export default [
 				element: <AdminSingleArtistPage />,
 			},
 			{ path: ":artist_id/edit", element: <AdminArtistEditPage /> },
+			{ path: "new", element: <AdminArtistEditPage /> },
 		],
 	},
 	{

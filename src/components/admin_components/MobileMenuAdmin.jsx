@@ -1,7 +1,8 @@
 import React, { useState, useRef, useEffect } from "react";
 import { NavLink } from "react-router-dom";
-
+import { useAuth } from "../../context/AuthContext";
 export default function MobileMenuAdmin({ isOpen, onSetIsOpen }) {
+	const { currentUser } = useAuth();
 	function setActiveRoute({ isActive }) {
 		return isActive ? "text-accent" : "text-light";
 	}
@@ -23,7 +24,7 @@ export default function MobileMenuAdmin({ isOpen, onSetIsOpen }) {
 					</NavLink>
 					<NavLink
 						className={setActiveRoute}
-						to="/admin"
+						to={currentUser ? "/admin" : "/admin/auth"}
 						onClick={() => onSetIsOpen(false)}
 					>
 						Admin UI
@@ -36,64 +37,72 @@ export default function MobileMenuAdmin({ isOpen, onSetIsOpen }) {
 					close
 				</span>
 			</div>
-			<ul className="mt-10 px-2">
-				<li>
-					<NavLink
-						to="/admin/songs"
-						className="flex py-2 gap-1 mb-1"
-						onClick={() => onSetIsOpen(false)}
-					>
-						<span className="material-symbols-outlined">genres</span>
-						<span>Songs</span>
+			{currentUser ? (
+				<ul className="mt-10 px-2">
+					<li>
+						<NavLink
+							to="/admin/songs"
+							className="flex py-2 gap-1 mb-1"
+							onClick={() => onSetIsOpen(false)}
+						>
+							<span className="material-symbols-outlined">genres</span>
+							<span>Songs</span>
+						</NavLink>
+					</li>
+					<li>
+						<NavLink
+							to="/admin/artists"
+							className="flex py-2 gap-1 mb-1"
+							onClick={() => onSetIsOpen(false)}
+						>
+							<span className="material-symbols-outlined">artist</span>
+							<span>Artists</span>
+						</NavLink>
+					</li>
+					<li>
+						<NavLink
+							to="/admin/albums"
+							className="flex py-2 gap-1 mb-1"
+							onClick={() => onSetIsOpen(false)}
+						>
+							<span className="material-symbols-outlined">album</span>
+							<span>Albums</span>
+						</NavLink>
+					</li>
+					<li>
+						<NavLink
+							to="/admin/users"
+							className="flex py-2 gap-1 mb-1"
+							onClick={() => onSetIsOpen(false)}
+						>
+							<span className="material-symbols-outlined">group</span>
+							<span>Users</span>
+						</NavLink>
+					</li>
+					<li>
+						<NavLink
+							to="/admin/admins"
+							className="flex py-2 gap-1 mb-1"
+							onClick={() => onSetIsOpen(false)}
+						>
+							<span className="material-symbols-outlined">shield_person</span>
+							<span>Admins</span>
+						</NavLink>
+					</li>
+				</ul>
+			) : (
+				<div className="text-center mt-10 px-2">
+					<NavLink to="/admin/auth">
+						<button
+							onClick={() => onSetIsOpen(false)}
+							type="button"
+							className="py-2.5 w-2/3 px-5 me-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700"
+						>
+							Login
+						</button>
 					</NavLink>
-				</li>
-				<li>
-					<NavLink
-						to="/admin/artists"
-						className="flex py-2 gap-1 mb-1"
-						onClick={() => onSetIsOpen(false)}
-					>
-						<span className="material-symbols-outlined">artist</span>
-						<span>Artists</span>
-					</NavLink>
-				</li>
-				<li>
-					<NavLink
-						to="/admin/albums"
-						className="flex py-2 gap-1 mb-1"
-						onClick={() => onSetIsOpen(false)}
-					>
-						<span className="material-symbols-outlined">album</span>
-						<span>Albums</span>
-					</NavLink>
-				</li>
-				<li>
-					<NavLink
-						to="/admin/users"
-						className="flex py-2 gap-1 mb-1"
-						onClick={() => onSetIsOpen(false)}
-					>
-						<span className="material-symbols-outlined">group</span>
-						<span>Users</span>
-					</NavLink>
-				</li>
-				<li>
-					<NavLink
-						to="/admin/admins"
-						className="flex py-2 gap-1 mb-1"
-						onClick={() => onSetIsOpen(false)}
-					>
-						<span className="material-symbols-outlined">shield_person</span>
-						<span>Admins</span>
-					</NavLink>
-				</li>
-			</ul>
-			{/* <div className="bg-slate-500 h-full flex flex-col justify-end">
-				<div className="flex  bg-red-600 h-fit">
-					<span class="material-symbols-outlined">person</span>
-					<span>user@email.com</span>
 				</div>
-			</div> */}
+			)}
 		</div>
 	);
 }

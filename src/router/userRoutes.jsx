@@ -13,11 +13,18 @@ import AlbumsListPage from "../pages/user_pages/user_albums/AlbumsListPage";
 import SingleAlbumPage from "../pages/user_pages/user_albums/SingleAlbumPage";
 import PlaylistsListPage from "../pages/user_pages/user_playlists/PlaylistsListPage";
 import SinglePlaylistPage from "../pages/user_pages/user_playlists/SinglePlayListPage";
+import IndexAuthUserPage from "../pages/user_pages/user_auth/IndexAuthUserPage";
+import LoginAuthUserPage from "../pages/user_pages/user_auth/LoginAuthUserPage";
 
 export default [
 	{
 		path: "",
 		element: <UserHomePage />,
+	},
+	{
+		path: "auth",
+		element: <IndexAuthUserPage />,
+		children: [{ path: "", element: <LoginAuthUserPage /> }],
 	},
 	{
 		path: "songs",

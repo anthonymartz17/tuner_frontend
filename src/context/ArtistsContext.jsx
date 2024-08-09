@@ -6,9 +6,9 @@ import {
 	updateArtist,
 	deleteArtist,
 } from "../services/artists.services";
+
 const ArtistsContext = createContext({
 	artists: [],
-	artist: {},
 	getArtists: () => {},
 	getArtistById: () => {},
 	createNewArtist: () => {},
@@ -18,10 +18,10 @@ const ArtistsContext = createContext({
 
 export default function ArtistContextProvider({ children }) {
 	const [artists, setArtists] = useState([]);
-	const [artist, setArtist] = useState({});
+	
 
-  async function getArtists() {
-    console.log('firing')
+	async function getArtists() {
+		
 		try {
 			const artistsData = await fetchArtists();
 			setArtists(artistsData);
@@ -30,10 +30,9 @@ export default function ArtistContextProvider({ children }) {
 		}
 	}
 	async function getArtistById(id) {
-
 		try {
 			const artistData = await fetchArtistById(id);
-			setArtist(artistData);
+			return artistData;
 		} catch (error) {
 			throw error;
 		}
@@ -41,7 +40,7 @@ export default function ArtistContextProvider({ children }) {
 	async function createNewArtist(payload, token) {
 		try {
 			const newArtist = await createArtist(payload, token);
-			setArtist((prev) => [...prev, newArtist]);
+			setArtists((prev) => [newArtist, ...prev]);
 			return newArtist;
 		} catch (error) {
 			throw error;
@@ -72,7 +71,6 @@ export default function ArtistContextProvider({ children }) {
 
 	const contextValue = {
 		artists,
-		artist,
 		getArtists,
 		getArtistById,
 		createNewArtist,

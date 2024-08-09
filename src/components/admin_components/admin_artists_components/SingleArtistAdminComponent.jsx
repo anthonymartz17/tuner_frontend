@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
-import { convertSecToMin, formatDate } from "../../../utils/formaters.utils";
-export default function AdminSingleSongComponent({ song }) {
+import { formatDate } from "../../../utils/formaters.utils";
+export default function SingleArtistAdminComponent({ artist = {} }) {
+	
 	return (
 		<table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
 			<tbody>
@@ -9,11 +10,11 @@ export default function AdminSingleSongComponent({ song }) {
 						scope="row"
 						className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap bg-gray-50 dark:text-white dark:bg-gray-800"
 					>
-						Song
+						Artist
 					</th>
 					<td className="px-6 py-4 flex items-baseline gap-1">
-						<img className="w-10" src={song.cover_img} alt="" />
-						<span className="truncate">{song.name}</span>
+						<img className="w-10" src={artist.cover_img} alt="" />
+						<span className="truncate">{artist.name}</span>
 					</td>
 				</tr>
 				<tr className="border-b border-gray-200 dark:border-gray-700">
@@ -21,28 +22,20 @@ export default function AdminSingleSongComponent({ song }) {
 						scope="row"
 						className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap bg-gray-50 dark:text-white dark:bg-gray-800"
 					>
-						Artist
+						Genre
 					</th>
-					<td className="px-6 py-4">{song.artist}</td>
+					<td className="px-6 py-4">{artist.genre}</td>
 				</tr>
 				<tr className="border-b border-gray-200 dark:border-gray-700">
 					<th
 						scope="row"
 						className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap bg-gray-50 dark:text-white dark:bg-gray-800"
 					>
-						Album
+						Bio
 					</th>
-					<td className="px-6 py-4">{song.album ?? "Single"}</td>
+					<td className="px-6 py-4">{artist.bio ?? "N/A"}</td>
 				</tr>
-				<tr className="border-b border-gray-200 dark:border-gray-700">
-					<th
-						scope="row"
-						className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap bg-gray-50 dark:text-white dark:bg-gray-800"
-					>
-						Duration
-					</th>
-					<td className="px-6 py-4">{convertSecToMin(song.duration)}</td>
-				</tr>
+
 				<tr className="border-b border-gray-200 dark:border-gray-700">
 					<th
 						scope="row"
@@ -50,7 +43,7 @@ export default function AdminSingleSongComponent({ song }) {
 					>
 						Date Added
 					</th>
-					<td className="px-6 py-4">{formatDate(song.created_at)}</td>
+					<td className="px-6 py-4">{formatDate(artist.created_at)}</td>
 				</tr>
 				<tr className="border-b border-gray-200 dark:border-gray-700">
 					<th
@@ -60,13 +53,15 @@ export default function AdminSingleSongComponent({ song }) {
 						Actions
 					</th>
 					<td className="py-3  flex px-6 gap-4 ">
-						<Link to={`/admin/songs/${song.id}/edit`}>
+						<Link to={`/admin/artists/${artist.id}/edit`}>
 							<span className="material-symbols-outlined text-yellow-500">
 								edit
 							</span>
 						</Link>
 
-						<span className="material-symbols-outlined text-red-600">delete</span>
+						<span className="material-symbols-outlined text-red-600 cursor-pointer">
+							delete
+						</span>
 					</td>
 				</tr>
 			</tbody>

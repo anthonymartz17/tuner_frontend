@@ -34,8 +34,8 @@ export default function songsContext({ children }) {
 	async function createNewSong(payload) {
 		try {
 			const newSong = await createSong(payload, token);
-			console.log(newSong,'res')
-			setSong((prev) => [...prev, newSong]);
+			console.log(newSong, "res");
+			setSong((prev) => [newSong, ...prev]);
 			return newSong;
 		} catch (error) {
 			throw error;

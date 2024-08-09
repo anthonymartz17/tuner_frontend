@@ -20,7 +20,7 @@ export async function fetchArtistById(id) {
 }
 export async function createArtist(payload, token) {
 	try {
-		const res = await fetch(`${TUNER_API}/artists/`, {
+		const res = await fetch(`${TUNER_API}/artists`, {
 			headers: {
 				Authorization: "Bearer " + token,
 				"Content-type": "Application/JSON",

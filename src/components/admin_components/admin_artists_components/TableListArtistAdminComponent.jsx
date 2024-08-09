@@ -9,7 +9,7 @@ export default function TableListAdminComponent({ artists }) {
 						type="button"
 						className="py-2.5  px-5 me-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700"
 					>
-						+ Add Artist
+						+ Add New Artist
 					</button>
 				</Link>
 			</div>
@@ -22,9 +22,7 @@ export default function TableListAdminComponent({ artists }) {
 						<th scope="col" className="px-6 py-3">
 							Genre
 						</th>
-						<th scope="col" className="px-6 py-3">
-							Bio
-						</th>
+
 						<th scope="col" className="px-6 py-3">
 							Actions
 						</th>
@@ -49,7 +47,6 @@ export default function TableListAdminComponent({ artists }) {
 									<span className="truncate">{artist.name}</span>
 								</th>
 								<td className="px-6 py-4 truncate">{artist.genre}</td>
-								<td className="px-6 py-4 truncate">{artist.bio}</td>
 								<td className="px-3 py-4 flex gap-2">
 									<Link to={`/admin/artists/${artist.id}`}>
 										<span className="material-symbols-outlined text-green-600">
@@ -57,13 +54,13 @@ export default function TableListAdminComponent({ artists }) {
 										</span>
 									</Link>
 
-									<Link to={`/admin/artists/${artist.id}`}>
+									<Link to={`/admin/artists/${artist.id}/edit`}>
 										<span className="material-symbols-outlined text-yellow-500">
 											edit
 										</span>
 									</Link>
 
-									<span className="material-symbols-outlined text-red-600">
+									<span className="material-symbols-outlined text-red-600 cursor-pointer">
 										delete
 									</span>
 								</td>

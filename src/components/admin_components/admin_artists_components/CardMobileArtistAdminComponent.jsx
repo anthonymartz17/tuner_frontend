@@ -48,7 +48,7 @@ export default function SongCardMobileAdmin({ artist }) {
 							</span>
 						</Link>
 
-						<Link to={`/admin/artists/${artist.id}`}>
+						<Link to={`/admin/artists/${artist.id}/edit`}>
 							<span className="material-symbols-outlined text-yellow-500">
 								edit
 							</span>
